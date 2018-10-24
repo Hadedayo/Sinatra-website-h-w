@@ -11,7 +11,7 @@ class PostController < Sinatra::Base
     #static route
     get "/" do
       @title = "Homepage"
-      "<h1>Welcome to m Food Homepage</h1>"
+      "<h1>Welcome to my Food Homepage</h1>"
       erb :'homepage/index'
     end
 
