@@ -11,28 +11,22 @@ class PostController < Sinatra::Base
     #static route
     get "/" do
       @title = "Homepage"
-      "<h1>Welcome to my Food Homepage</h1>"
-      erb :'homepage/index'
+      erb :'pages/homepage'
     end
 
     get "/:food" do
-      food = params[:food]
-
-      case food
-      when food == "cheerios"
-          erb :'cheerios/index'
-
-        when food == "jollof rice"
-          erb :'jrice/index'
-
-        when food == "plantain"
-          erb :'plantain/index'
-
-        when food == "lasagne"
-          erb :'lasagne/index'
-
-        else
-
+    food = params[:food]
+    case food
+      when "cheerios"
+        erb :'pages/cheerios'
+      when  "jrice"
+        erb :'pages/jrice'
+      when  "plantain"
+        erb :'pages/plantain'
+      when "lasagne"
+        erb :'pages/lasagne'
+      else
+        redirect :"https://en.wikipedia.org/wiki/#{food}"
       end
     end
 
